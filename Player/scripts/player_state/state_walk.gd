@@ -1,14 +1,13 @@
-class_name State extends Node
+class_name State_Walk extends State
 
-static var player: Player
+@export var move_speed: float = 100.0
 
-# ? Dipanggil ketika Node masuk ke scene tree pertama kali
-func _ready() -> void:
-	pass
+@onready var idle: State = $"../Idle"
+
 
 # ? Apa yang terjadi ketika player masuk ke State ini?
 func Enter() -> void:
-	pass
+	player.UpdateAnimation("walk")
 
 # ? Apa yang terjadi ketika player keluar dari State ini?
 func Exit() -> void:
@@ -16,7 +15,16 @@ func Exit() -> void:
 
 # ? Apa yang terjadi ketika update _process pada State ini?
 func Process(_delta: float) -> State:
+	if player.direction == Vector2.ZERO:
+		return idle
+
+	player.velocity = player.direction.normalized() * move_speed
+
+	if player.SetDirection():
+		player.UpdateAnimation("walk")
+
 	return null
+
 
 # ? Apa yang terjadi ketika _physics_process
 func Physics(_delta: float) -> State:
