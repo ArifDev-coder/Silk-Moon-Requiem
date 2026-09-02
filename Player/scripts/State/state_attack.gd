@@ -7,7 +7,7 @@ var attacking: bool = false
 
 @onready var idle: State = $"../Idle"
 @onready var walk: State = $"../Walk"
-@onready var hurt_box: HurtBox = %AttackHurtBox
+@onready var hurt_box: HurtBox = %HurtBox
 
 @onready var animation_player: AnimatedSprite2D = $"../../AnimatedSprite2D"
 @onready var animation_player_attack: AnimationPlayer = $"../../AnimatedSprite2D/AttackEffectSprite/AnimationPlayer"
