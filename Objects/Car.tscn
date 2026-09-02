@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://vg0yburaapkx"]
+
+[ext_resource type="Texture2D" uid="uid://c0ka5phr7copu" path="res://Tilemap/sprites/tilemap_packed.png" id="1_7km7h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfnip"]
+size = Vector2(24, 14)
+
+[node name="Car" type="CharacterBody2D" unique_id=175874407]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1497913301]
+texture_filter = 1
+position = Vector2(0, -11)
+texture = ExtResource("1_7km7h")
+region_enabled = true
+region_rect = Rect2(243.57373, 233.45375, 24.61435, 22.835953)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=491888548]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_dfnip")

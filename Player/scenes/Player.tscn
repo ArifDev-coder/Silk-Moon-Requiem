@@ -24,6 +24,40 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_hxt8t"]
+resource_name = "idle_corner_down"
+length = 0.3
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [39, 41]
+}
+
+[sub_resource type="Animation" id="Animation_vpcei"]
+resource_name = "idle_corner_up"
+length = 0.3
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [47, 49]
+}
+
 [sub_resource type="Animation" id="Animation_yovo5"]
 resource_name = "idle_down"
 length = 0.3
@@ -73,6 +107,40 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [51, 53]
+}
+
+[sub_resource type="Animation" id="Animation_n1uqp"]
+resource_name = "walk_corner_down"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [74, 77]
+}
+
+[sub_resource type="Animation" id="Animation_s64q1"]
+resource_name = "walk_corner_up"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [82, 85]
 }
 
 [sub_resource type="Animation" id="Animation_y1ibn"]
@@ -129,9 +197,13 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hxt8t"]
 _data = {
 &"RESET": SubResource("Animation_1x7iy"),
+&"idle_corner_down": SubResource("Animation_hxt8t"),
+&"idle_corner_up": SubResource("Animation_vpcei"),
 &"idle_down": SubResource("Animation_yovo5"),
 &"idle_side": SubResource("Animation_2mebj"),
 &"idle_up": SubResource("Animation_dm6gq"),
+&"walk_corner_down": SubResource("Animation_n1uqp"),
+&"walk_corner_up": SubResource("Animation_s64q1"),
 &"walk_down": SubResource("Animation_y1ibn"),
 &"walk_side": SubResource("Animation_v257v"),
 &"walk_up": SubResource("Animation_yeuxe")
@@ -142,12 +214,12 @@ motion_mode = 1
 script = ExtResource("1_1x7iy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=426458077]
-position = Vector2(0, -4)
+position = Vector2(0, -1.545)
 shape = SubResource("CircleShape2D_movaq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=747667132]
 texture_filter = 1
-position = Vector2(0, -16)
+position = Vector2(0, -15.585)
 texture = ExtResource("1_qp7ha")
 hframes = 35
 vframes = 7
@@ -164,3 +236,4 @@ script = ExtResource("4_dm6gq")
 
 [node name="Walk" type="Node" parent="StateMachine" unique_id=214222072]
 script = ExtResource("5_y1ibn")
+move_speed = 40.0
