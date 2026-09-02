@@ -7,7 +7,8 @@ var cardinal_direction: Vector2 = Vector2.DOWN
 var direction: Vector2 = Vector2.ZERO
 # var state: String = "idle"
 
-@onready var player_anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var player: Sprite2D = $Sprite2D
+@onready var player_anim: AnimationPlayer = $Sprite2D/AnimationPlayer
 @onready var state_machine: PlayerStateMachine = $StateMachine
 
 signal DirectionChanged(new_dir: Vector2)
@@ -51,7 +52,7 @@ func SetDirection() -> bool:
 	DirectionChanged.emit(new_dir)
 
 	# player_anim.flip_h = true if cardinal_direction == Vector2.LEFT else false
-	player_anim.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
+	player.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
 
 	return true
 

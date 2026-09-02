@@ -9,8 +9,8 @@ var attacking: bool = false
 @onready var walk: State = $"../Walk"
 @onready var hurt_box: HurtBox = %HurtBox
 
-@onready var animation_player: AnimatedSprite2D = $"../../AnimatedSprite2D"
-@onready var animation_player_attack: AnimationPlayer = $"../../AnimatedSprite2D/AttackEffectSprite/AnimationPlayer"
+@onready var animation_player: AnimationPlayer = $"../../Sprite2D/AnimationPlayer"
+@onready var animation_player_attack: AnimationPlayer = $"../../Sprite2D/AttackEffectSprite/AnimationPlayer"
 
 @onready var audio: AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D"
 
@@ -73,7 +73,7 @@ func HandleInput(_event: InputEvent) -> State:
 	return null
 
 
-func EndAttack() -> void:
+func EndAttack(_anim) -> void:
 	attacking = false
 
 # func on_frame_changed() -> void:
